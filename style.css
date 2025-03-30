@@ -1,0 +1,351 @@
+/* General Reset & Smooth Scrolling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Navbar */
+nav {
+    background-color: #000;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    transition: padding 0.3s ease;
+}
+
+nav .logo img {
+    width: 120px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ffcc00;
+    background-color: rgba(255, 204, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Hamburger - for mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Intro Section */
+.intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    /* to avoid fixed navbar overlap */
+    background: url('hero-bg.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.intro .intro-content {
+    position: relative;
+    max-width: 800px;
+    padding: 0 20px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.intro .intro-content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.intro .intro-content h2 {
+    font-size: 36px;
+    margin: 10px 0;
+    background-image: linear-gradient(to right, #2600ff, #ffffff, #4800ff);
+    background-size: 200% auto;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    transition: background-position 0.5s ease-in-out;
+}
+
+.intro .intro-content h2:hover {
+    background-position: right center;
+}
+
+.intro .intro-content p {
+    font-size: 18px;
+    margin: 10px 0 20px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #000;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ffdd33;
+    transform: translateY(-2px);
+}
+
+/* Sections */
+.section {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.03);
+}
+
+.text-container {
+    flex: 1;
+}
+
+.text-container h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.text-container p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Reverse layout */
+.content-container.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+}
+
+footer a {
+    color: #aaa;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+
+/* Tablet & Below (max-width: 768px) */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+        height: 80px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 200px;
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li a {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .intro .intro-content h1 {
+        font-size: 36px;
+    }
+
+    .intro .intro-content h2 {
+        font-size: 28px;
+    }
+
+    .intro .intro-content p {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .content-container {
+        flex-direction: column;
+    }
+}
+
+/* Large Screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+    body {
+        font-size: 18px;
+    }
+
+    nav {
+        padding: 0 60px;
+    }
+
+    nav .logo img {
+        width: 150px;
+    }
+
+    .nav-links li a {
+        font-size: 22px;
+        padding: 12px 20px;
+    }
+
+    .intro .intro-content h1 {
+        font-size: 64px;
+    }
+
+    .intro .intro-content h2 {
+        font-size: 48px;
+    }
+
+    .section {
+        padding: 120px 40px;
+    }
+
+    .content-container {
+        gap: 60px;
+        width: 85%;
+        max-width: 1400px;
+    }
+
+    .text-container h1 {
+        font-size: 52px;
+    }
+
+    .text-container p {
+        font-size: 20px;
+    }
+}

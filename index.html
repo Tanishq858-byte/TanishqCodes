@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="MyLogo" />
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="intro" id="home">
+        <div class="intro-content">
+            <h1>Hi, I'm Tanishq</h1>
+            <h2>I am a Hacker</h2>
+            <p> Ethical Hacker at your service.</p>
+            <a href="#projects" class="btn-primary">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Section 1: About Me -->
+    <section id="about" class="section">
+        <div class="content-container">
+            <div class="image-container fade-in">
+                <img src="abtme.png" alt="About Me" />
+            </div>
+            <div class="text-container fade-in">
+                <h1>About Me</h1>
+                <p>Hey there! I am Tanishq from grade 8 and am currently studying in Arbor International School. My dream is to get in an IT sector and become an CyberSecurity master. I also have intrest in fields like web development and game making, but networking is my main goal. I also love Maths and Science beside Computers. I wish to learn computers from IIT Bombay.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Achievements -->
+    <section id="achievements" class="section">
+        <div class="content-container reverse">
+            <div class="image-container fade-in">
+                <img src="achi.png" alt="Achievements" />
+            </div>
+            <div class="text-container fade-in">
+                <h1>Achievements</h1>
+                <p><ul>
+                    <li>Secured First place at designers odysessy</li>
+                    <li>Secured school Rank 2 at SOF NSO Level-1 2024-2025</li>
+                    <li>Secured Zonal Rank 136 At SOF NSO Level-2</li>
+                    <li>100% Scholorship at ANTHE Aakash exam 2024-25</li>
+                    <li>99% in CS Annual Exam held at Arbor Internatinal School</li>
+                </ul></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Projects -->
+    <section id="projects" class="section">
+        <div class="content-container">
+            <div class="image-container fade-in">
+                <img src="project.png" alt="Projects" />
+            </div>
+            <div class="text-container fade-in">
+                <h1>Projects</h1>
+                <p>
+                    <ul>
+                        <li>Fiship</li>
+                        <li>2D game in Unity</li>
+                        <li>Found Several Teachers Insta Accounts for fun</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Contact -->
+    <section id="contact" class="section">
+        <div class="content-container reverse">
+            <div class="image-container fade-in">
+                <img src="call.png" alt="Contact" />
+            </div>
+            <div class="text-container fade-in">
+                <h1>Contact Me</h1>
+                <p>
+                    <ol>
+                        <li>Number:- 8374 2461 06 [DND]</li>
+                        <li>Email- pal.Tanishq28@gmail.com</li>
+                        <li>GitHub:- Tanishq858-byte </li>
+
+                    </ol>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Tanishq. All rights reserved. | <a href="#">Terms & Conditions</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Fade-in animation on scroll using Intersection Observer
+        document.addEventListener('DOMContentLoaded', function () {
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = { threshold: 0.5 };
+
+            const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => appearOnScroll.observe(fader));
+        });
+
+        // Hamburger menu toggle for mobile
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
